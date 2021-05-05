@@ -1,0 +1,36 @@
+﻿@page
+@model StardekkMediorFullstackDeveloper.ListModel
+@{
+    ViewData["Title"] = "List";
+    ViewData["ShowHeader"] = true;
+}
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var amenity in Model.Amenities)
+            {
+                <tr>
+                    <th scope="row"><code>@amenity.Id</code></th>
+                    <td>@amenity.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+<a class="btn btn-secondary" asp-page="/amenities/add">Add amenity</a>
+
+<script>
+        $(document).ready(function () {
+            var type = "@ViewData["type"]";
+            var message = "@ViewData["Message"]";
+            if (message) {
+                CommanScript.ToastMessage(type, message);
+            }
+        });
+</script>
+
